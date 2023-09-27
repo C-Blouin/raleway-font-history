@@ -1,0 +1,292 @@
+@charset "UTF-8";
+
+/* 
+Assignment 1 Font/Typography Assignment
+Christopher Blouin
+*/
+
+/* Import Raleway Font with the collection of weights */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Root Styles on html Element */
+html {
+  /* Apply Raleway to the root element of the document, with fallback if Raleway fails to render on a users device. */
+  font-family: 'Raleway', Georgia, 'Times New Roman', Times, serif;
+  font-size: 100%;
+  line-height: 1.4;
+  /* Thanks to this helpful resource to create CSS Gradients, https://cssgradient.io/ */
+  background: #161616;
+  background: radial-gradient(circle, rgb(2, 0, 10) 0%, rgb(5, 0, 15) 100%);
+  color: white;
+  text-align: justify;
+  scroll-behavior: smooth;
+  hyphens: auto;
+}
+
+/* Set a max width to the body element, with automatic margins to allow content to adjust to many devices. */
+body {
+  max-width: 1366px;
+  margin: auto;
+  padding: 0px 10px;
+}
+
+main {
+  padding: 10px;
+}
+
+/* Assign root font sizes to heading elements */
+h1 {
+  font-size: 4.8rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-top: 50px;
+}
+
+h3 {
+  font-size: 2.4rem;
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+h5 {
+  font-size: 1.4rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+/* Grouped selector to target all present headings the in page, assigning a distinct font weight. */
+h1,
+h2,
+h3,
+h4,
+h1 em,
+h2 em,
+h3 em {
+  font-weight: 300;
+}
+
+/* Overwrite the font-weight of the strong elements inside the h1, h2, and h3 headings. */
+h1 strong,
+h2 strong,
+h3 strong {
+  color: #bcdfb9;
+  font-weight: 600;
+}
+
+/* Target any paragraphs elements in the section and articles elements, adding some line height and white space. */
+section p,
+article p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  padding: 10px 0px;
+}
+
+/* Referenced this article to create the dropcap, https://css-tricks.com/snippets/css/drop-caps/ */
+main > section:nth-of-type(1) > div > p:first-child:first-letter {
+  color: #bcdfb9;
+  float: left;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 80px;
+  line-height: 40px;
+  margin-top: 18px;
+  padding-right: 20px;
+}
+
+/* Target the first of type section div element, apply a box shadow with negative values to appear from the top and left only. */
+main > section:nth-of-type(1) > div {
+  box-shadow: rgba(228, 228, 228, 0.5) -1px -1px 1px;
+  border-radius: 6px;
+  padding: 10px 50px;
+}
+
+/* Start of Anchor Styles */
+/* Add distinct look to the anchor elements so users will likely hover the cursor over the links. */
+a {
+  text-decoration: none;
+  color: #bcdfb9;
+  font-weight: 700;
+}
+
+a:nth-of-type(1):hover {
+  color: #a0cc9d;
+  text-shadow: #707070 2px 1px 5px;
+}
+
+article > section:nth-of-type(2) a {
+  padding: 10px 20px;
+  background-color: #dbffd8;
+  color: #202020;
+
+  border-radius: 10px;
+}
+
+article > section:nth-of-type(2) a:hover {
+  background-color: #202020;
+  color: white;
+  transition: ease 0.7s;
+}
+
+/* End of Anchor Styles */
+
+/* Unordered list and list item styles. */
+section > ul li {
+  line-height: 2;
+  list-style: circle;
+}
+
+/* Display the first section div element children in a grid layout with two side by side columns, with one below 2, 1. */
+main > section:first-of-type > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  main > section:nth-of-type(1) > div {
+    box-shadow: none;
+    padding: 10px 10px;
+  }
+}
+
+/* When a device width is 800px, the grid layout will render one column so all content is wrapping rather than becoming squashed. */
+@media screen and (max-width: 800px) {
+  main > section:first-of-type > div {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Add white space to the section elements in the html document. */
+main > article > section > div > section {
+  padding: 25px 50px;
+}
+
+/* Font Variations grid layout heading styles */
+main > article > section > h3,
+main > article > section > div > section > h4 {
+  font-size: 1.8rem;
+  color: #bcdfb9;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Font Variations Section Grid Styles. grid-auto-flow: column allows for the child elements to scale content size dynamically to the viewport.*/
+main > article > section > div {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 3rem;
+  text-align: center;
+}
+
+/* When the viewport is 768px, the columns will collapse into single rows of content */
+@media screen and (max-width: 768px) {
+  main > article > section > div {
+    grid-auto-flow: row;
+    gap: 0;
+  }
+}
+
+/* Start of Font Variations Styles */
+
+main > article > section > div > section > h4 {
+  font-size: 1.4rem;
+}
+
+/* Targets section paragraph child to provide an overview of each font weight.  */
+main > article > section > div > section > p:nth-child(2) {
+  font-weight: 100;
+}
+main > article > section > div > section > p:nth-child(3) {
+  font-weight: 200;
+}
+main > article > section > div > section > p:nth-child(4) {
+  font-weight: 300;
+}
+main > article > section > div > section > p:nth-child(5) {
+  font-weight: 400;
+}
+main > article > section > div > section > p:nth-child(6) {
+  font-weight: 500;
+}
+main > article > section > div > section > p:nth-child(7) {
+  font-weight: 600;
+}
+main > article > section > div > section > p:nth-child(8) {
+  font-weight: 700;
+}
+main > article > section > div > section > p:nth-child(9) {
+  font-weight: 800;
+}
+main > article > section > div > section > p:nth-child(10) {
+  font-weight: 900;
+}
+
+main > article > section > div > section > p,
+main > article > section > div > section:nth-of-type(2) > p {
+  font-size: 1.4rem;
+  padding: 0;
+  line-height: 1;
+}
+
+/* The second section (nth-of-type(2)) will appear in italics. */
+main > article > section > div > section:nth-of-type(2) > p {
+  font-style: italic;
+}
+
+/* Target the children of each column section that contains a descendant span element, appearing green providing contrast to the columns.  */
+main > article > section > div > section:nth-of-type(1) > p > span,
+main > article > section > div > section:nth-of-type(2) > p > span,
+main > article > section > div > section:nth-of-type(3) > p > span {
+  color: #bcdfb9;
+}
+
+/* End of Font Variations Column Styles */
+
+/* Start of Sample Sentences Styles  */
+
+main > article > section:nth-of-type(2) > div > p {
+  text-align: justify;
+  font-size: 1.6rem;
+  font-weight: 100;
+}
+
+main > article > section:nth-of-type(2) > div > p:nth-of-type(2) {
+  font-weight: 400;
+}
+
+main > article > section:nth-of-type(2) > div > p:nth-of-type(3) {
+  font-weight: 600;
+}
+
+/* Start of Alphabetical Section Styles  */
+
+main > article > section:nth-of-type(2) > div:nth-of-type(2),
+main > article > section:nth-of-type(2) > div:nth-of-type(2) > p:nth-child(2) {
+  font-weight: 100;
+  text-shadow: 2px 2px 3px white;
+}
+
+main > article > section:nth-of-type(2) > div:nth-of-type(2) > p:nth-child(2) {
+  text-transform: uppercase;
+}
+
+/* End of Alphabetical Section Styles */
+
+/* End of Sample Sentences Styles  */
+
+/* End of Font Variations Styles */
+
+/* Start of Footer Styles */
+
+footer {
+  margin-top: 100px;
+  text-align: center;
+}
+
+/* End of Footer Styles */
